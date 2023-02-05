@@ -22,8 +22,6 @@ interface RetrofitService {
     @GET("/api/v2.2/films/{id}")
     suspend fun getMovie(@Path("id") id: Int) : MovieInfo
 
-
-
     companion object {
         private var retrofitService: RetrofitService? = null
 

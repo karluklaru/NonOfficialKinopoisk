@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bignerdranch.android.tinkofffintech.R
 import com.bignerdranch.android.tinkofffintech.api.pojo.Movie
 import com.bignerdranch.android.tinkofffintech.databinding.ItemMovieBinding
 import com.bumptech.glide.Glide
@@ -43,7 +44,7 @@ class MovieAdapter(
             }
             nameRu.text = movie.nameRu
             genre.text = movie.genres?.get(0)?.genre
-            year.text = "(" + movie.year + ")"
+            year.text = context.getString(R.string.braced_year, movie.year)
             Glide.with(context).load(movie.posterUrl).into(poster)
         }
 

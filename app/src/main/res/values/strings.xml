@@ -3,6 +3,7 @@
     <string name="popular">Популярные</string>
     <string name="favorite">Избранное</string>
     <string name="search_hint">Поиск</string>
+    <string name="braced_year">(%d)</string>
     <string name="error">Произошла ошибка при загрузке данных, проверьте подключение к сети.</string>
     <string name="not_found">Не найдено</string>
     <string name="repeat">Повторить</string>
