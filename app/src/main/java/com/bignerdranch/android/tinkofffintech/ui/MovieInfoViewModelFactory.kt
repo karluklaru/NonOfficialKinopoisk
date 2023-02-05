@@ -1,7 +1,8 @@
-package com.bignerdranch.android.tinkofffintech.api.movieinfo
+package com.bignerdranch.android.tinkofffintech.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.bignerdranch.android.tinkofffintech.api.movieinfo.MovieInfoRepository
 
 class MovieInfoViewModelFactory constructor(private val repository: MovieInfoRepository)
     : ViewModelProvider.Factory {

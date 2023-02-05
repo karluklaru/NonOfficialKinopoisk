@@ -6,16 +6,11 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
-import com.bignerdranch.android.tinkofffintech.api.main.MainViewModel
-import com.bignerdranch.android.tinkofffintech.api.main.MainViewModelFactory
 import com.bignerdranch.android.tinkofffintech.api.movieinfo.MovieInfoRepository
-import com.bignerdranch.android.tinkofffintech.api.movieinfo.MovieInfoViewModel
-import com.bignerdranch.android.tinkofffintech.api.movieinfo.MovieInfoViewModelFactory
 import com.bignerdranch.android.tinkofffintech.api.pojo.Movie
 import com.bignerdranch.android.tinkofffintech.api.retrofit.RetrofitService
 import com.bignerdranch.android.tinkofffintech.databinding.ActivityMovieInfoBinding
 import com.bumptech.glide.Glide
-import kotlinx.coroutines.joinAll
 import okhttp3.OkHttpClient
 
 class MovieInfoActivity : AppCompatActivity() {

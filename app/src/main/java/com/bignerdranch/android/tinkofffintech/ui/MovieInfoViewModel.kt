@@ -1,10 +1,11 @@
-package com.bignerdranch.android.tinkofffintech.api.movieinfo
+package com.bignerdranch.android.tinkofffintech.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bignerdranch.android.tinkofffintech.api.NetworkState
+import com.bignerdranch.android.tinkofffintech.api.movieinfo.MovieInfoRepository
 import com.bignerdranch.android.tinkofffintech.api.pojo.MovieInfo
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Job

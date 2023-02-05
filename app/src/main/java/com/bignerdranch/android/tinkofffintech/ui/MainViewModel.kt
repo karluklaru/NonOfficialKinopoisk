@@ -1,22 +1,23 @@
-package com.bignerdranch.android.tinkofffintech.api.main
+package com.bignerdranch.android.tinkofffintech.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bignerdranch.android.tinkofffintech.api.NetworkState
+import com.bignerdranch.android.tinkofffintech.api.main.MainRepository
 import com.bignerdranch.android.tinkofffintech.api.pojo.Movie
 import kotlinx.coroutines.*
 
-class MainViewModel constructor(private val repository: MainRepository)
-    : ViewModel() {
+class MainViewModel constructor(private val repository: MainRepository) : ViewModel() {
 
     private val _errorMessage = MutableLiveData<String>()
     val errorMessage: LiveData<String>
-    get() = _errorMessage
+        get() = _errorMessage
 
 
     val topMovies = MutableLiveData<List<Movie>>()
+    val searchedMovies = MutableLiveData<Pair<String, List<Movie>>>()
 
     private var job: Job? = null
 
@@ -43,9 +44,7 @@ class MainViewModel constructor(private val repository: MainRepository)
                     }
                 }
             }
-
         }
-
     }
 
     private fun onError(message: String) {
@@ -55,5 +54,18 @@ class MainViewModel constructor(private val repository: MainRepository)
     override fun onCleared() {
         super.onCleared()
         job?.cancel()
+    }
+
+    fun searchMovies(searchQuery: String) {
+        searchedMovies.value = searchQuery to if (searchQuery.isNullOrBlank()) {
+            emptyList()
+        } else {
+            topMovies.value!!.filter {
+                it.nameRu?.contains(
+                    searchQuery,
+                    ignoreCase = true
+                ) == true
+            }
+        }
     }
 }

@@ -9,30 +9,29 @@ class MainActivity : AppCompatActivity() {
 
     private val checkConnection by lazy { CheckConnection(application) }
 
-    private val binding : ActivityMainBinding by lazy {
+    private val binding: ActivityMainBinding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        setupUi()
+    }
 
-        binding.apply {
-
-            checkConnection.observe(this@MainActivity) {
-                if (it) {
-                    val movieListFragment = MovieListFragment.newInstance()
-                    supportFragmentManager.beginTransaction()
-                        .replace(binding.mainScreen.id, movieListFragment)
-                        .commit()
-                } else {
-                    val noInternetConnectionFragment = NoInternetConnectionFragment.newInstance()
-                    supportFragmentManager.beginTransaction()
-                        .replace(binding.mainScreen.id, noInternetConnectionFragment)
-                        .commit()
-                }
+    private fun setupUi() = with(binding) {
+        checkConnection.observe(this@MainActivity) {
+            if (it) {
+                val movieListFragment = MovieListFragment.newInstance()
+                supportFragmentManager.beginTransaction()
+                    .replace(binding.mainScreen.id, movieListFragment)
+                    .commit()
+            } else {
+                val noInternetConnectionFragment = NoInternetConnectionFragment.newInstance()
+                supportFragmentManager.beginTransaction()
+                    .replace(binding.mainScreen.id, noInternetConnectionFragment)
+                    .commit()
             }
         }
-
     }
 }
