@@ -7,7 +7,7 @@
     <string name="error">Произошла ошибка при загрузке данных, проверьте подключение к сети.</string>
     <string name="not_found">Не найдено</string>
     <string name="repeat">Повторить</string>
-    <string name="baseUrl">https://kinopoiskapiunofficial.tech</string>
+    <string name="base_url">https://kinopoiskapiunofficial.tech</string>
     <string name="genres">Жанры:</string>
     <string name="countries">Страны:</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>

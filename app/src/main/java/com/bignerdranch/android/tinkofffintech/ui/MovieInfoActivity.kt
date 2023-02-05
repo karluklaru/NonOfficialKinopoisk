@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
+import com.bignerdranch.android.tinkofffintech.R
 import com.bignerdranch.android.tinkofffintech.api.movieinfo.MovieInfoRepository
 import com.bignerdranch.android.tinkofffintech.api.pojo.Movie
 import com.bignerdranch.android.tinkofffintech.api.retrofit.RetrofitService
@@ -23,7 +24,7 @@ class MovieInfoActivity : AppCompatActivity() {
         binding = ActivityMovieInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val okHttpClient = OkHttpClient()
-        val retrofitService = RetrofitService.getInstance("https://kinopoiskapiunofficial.tech", okHttpClient)
+        val retrofitService = RetrofitService.getInstance(R.string.base_url.toString(), okHttpClient)
         val movieInfoRepository = MovieInfoRepository(retrofitService)
         viewModel = ViewModelProvider(this, MovieInfoViewModelFactory(movieInfoRepository))[MovieInfoViewModel::class.java]
 

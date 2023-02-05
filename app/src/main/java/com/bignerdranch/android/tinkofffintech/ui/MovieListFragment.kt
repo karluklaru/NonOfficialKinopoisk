@@ -79,7 +79,7 @@ class MovieListFragment : Fragment() {
             adapter = movieAdapter
         }
         searchBtn.setOnClickListener {
-            switchFields(true)
+            switchFields(searchField.text.isNotEmpty())
         }
     }
 
